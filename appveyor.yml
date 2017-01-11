@@ -1,0 +1,15 @@
+version: 1.0.{build}
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  verbosity: minimal
+notifications:
+- provider: Email
+  to:
+  - eldhoabe.07@gmail.com
+  subject: Notification service git hub application failed
+  message: There is build failure in the notification service
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: false
