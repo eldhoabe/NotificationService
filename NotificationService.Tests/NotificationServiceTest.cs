@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NotifcationService;
 
 namespace NotificationService.Tests
@@ -26,11 +25,11 @@ namespace NotificationService.Tests
         [TestMethod]
         public void EnsureSmsInvoked()
         {
-            INotificationService smsservice = new SmsService("s", "s", new MockSender());
+            INotificationService smsservice = new SmsService("s",new MockSender());
 
 
             //Act
-            var result = smsservice.Notify();
+            var result = smsservice.Notify("test");
 
             Assert.IsTrue(result);
         }
@@ -44,37 +43,12 @@ namespace NotificationService.Tests
 
 
             //Act
-            var result = mailservice.Notify();
+            var result = mailservice.Notify("sms");
 
             Assert.IsTrue(result);
         }
     }
 
 
-    class MockSmsService : INotificationService
-    {
-
-        public bool Notify()
-        {
-            return true;
-        }
-    }
-
-    class MockSender : ISmsSender
-    {
-        public bool SendSms(string msg)
-        {
-            return true;
-        }
-    }
-
-
-    class MockMailService : INotificationService
-    {
-        public bool Notify()
-        {
-            return true;
-
-        }
-    }
+   
 }

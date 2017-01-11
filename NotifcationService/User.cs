@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NotifcationService
+﻿namespace NotifcationService
 {
     public class User
     {
@@ -21,7 +15,7 @@ namespace NotifcationService
 
         public void CreateUser(string name)
         {
-            isMailed = servier.Notify();
+            isMailed = servier.Notify("content");
         }
     }
 }
